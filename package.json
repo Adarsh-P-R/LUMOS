@@ -1,0 +1,30 @@
+{
+  "name": "lumos",
+  "productName": "LUMOS",
+  "version": "1.0.0",
+  "description": "LUMOS (Layout of Unruly Mirrors, Optics and Sources): design optical tables with real Gaussian beam tracing, mounts and a shopping list.",
+  "main": "main.js",
+  "author": "Adarsh",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --publish never",
+    "dist:win": "electron-builder --win --publish never"
+  },
+  "devDependencies": {
+    "electron": "33.2.1",
+    "electron-builder": "25.1.8"
+  },
+  "build": {
+    "appId": "io.github.lumos.opticaltable",
+    "productName": "LUMOS",
+    "copyright": "Copyright © 2026 Adarsh",
+    "files": ["main.js", "app/**/*"],
+    "directories": { "buildResources": "build", "output": "dist" },
+    "win": { "target": ["portable"], "icon": "build/icon.ico" },
+    "portable": { "artifactName": "LUMOS-${version}.exe" },
+    "mac": { "target": ["dmg"], "icon": "build/icon.png", "category": "public.app-category.education", "artifactName": "LUMOS-${version}.dmg" },
+    "linux": { "target": ["AppImage"], "icon": "build/icon.png", "category": "Science", "artifactName": "LUMOS-${version}.AppImage" }
+  }
+}
